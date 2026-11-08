@@ -38,7 +38,7 @@
 					{
 						"activity": "Read list of tables",
 						"dependencyConditions": [
-							"Skipped"
+							"Succeeded"
 						]
 					}
 				],
@@ -48,10 +48,9 @@
 						"value": "@activity('Read list of tables').output.value",
 						"type": "Expression"
 					},
-					"isSequential": true,
 					"activities": [
 						{
-							"name": "Set PL_variable1",
+							"name": "Set variable1",
 							"type": "SetVariable",
 							"dependsOn": [],
 							"policy": {
@@ -60,7 +59,7 @@
 							},
 							"userProperties": [],
 							"typeProperties": {
-								"variableName": "testvar1",
+								"variableName": "newsetvar",
 								"value": {
 									"value": "@string(item().table_id)",
 									"type": "Expression"
@@ -79,6 +78,12 @@
 		},
 		"variables": {
 			"testvar1": {
+				"type": "String"
+			},
+			"readvar": {
+				"type": "String"
+			},
+			"newsetvar": {
 				"type": "String"
 			}
 		},
